@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`changes based on user input 1`] = `
+<input
+  data-testid="input"
+  placeholder="name"
+  type="text"
+/>
+`;
