@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders form component 1`] = `
+<form>
+  <label>
+    Name
+  </label>
+  <input
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <input
+    data-testid="input"
+    placeholder="name"
+    type="text"
+  />
+</form>
+`;
