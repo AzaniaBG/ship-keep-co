@@ -1,0 +1,17 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.form-input {
+    margin-bottom: 1em;
+}
+.form-input input {
+    width: 20em;
+    padding: .5em;
+}
+.invalid {
+    color: red;
+}
+.form-input.invalid {
+    border-color: red;
+}
