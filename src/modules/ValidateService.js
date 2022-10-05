@@ -12,15 +12,22 @@ const ValidateService = {
         return isValid;
     },
 
-    isPasswordMatch(password, confirmPassword, setError) {
+    isPasswordMatch(eObject) {
+        let password = eObject["password"];
+        let confirmPassword = eObject["passwordConfirm"];
         if(password === confirmPassword) {
-            setError(false);
+            return false;
         } else {
-            setError(true);
+            return true;
         };
     },
 
-    validateInput(type, value, setError) {
+    validateInput(type, value, setError, eObject) {
+        if(!value) {
+            setError(true);
+        } else {
+            setError(false);
+        };
         if(type === "email") {
             let validEmail = ValidateService.isValidEmail(value);
             if(validEmail) {
@@ -32,6 +39,14 @@ const ValidateService = {
         if(type === "password") {
             let validPassword = ValidateService.isValidPassword(value);
             if(validPassword) {
+                setError(false);
+            } else {
+                setError(true);
+            };
+        };
+        if(type === "passwordConfirm") {
+            let passwordMatch = ValidateService.isPasswordMatch(eObject);
+            if(passwordMatch) {
                 setError(false);
             } else {
                 setError(true);
