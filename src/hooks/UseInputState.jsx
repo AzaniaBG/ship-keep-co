@@ -5,21 +5,13 @@ export const UseInputState = (initialValue) => {
     const [value, setValue] = useState(initialValue);
     const [error, setError] = useState(false);
 
-    const validateError = (value) => {
-        if(value === "" ||  value === " " || value.length === 0) {
-            setError(true);
-        } else {
-            setError(false);
-        }
-    };
-
     const handleChange = (e) => {
         let eType = e.target.type;
         let eValue = e.target.value;
-        validateError(eValue);
+        let eName = e.target.name;
+        let eObject = { [eName]: eValue };
         setValue(eValue);
-        ValidateService.validateInput(eType, eValue, setError);
-        // ValidateService.isPasswordMatch(password, )
+        ValidateService.validateInput(eType, eValue, setError, eObject);
     };
 
     const resetValue = () => {
